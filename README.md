@@ -15,9 +15,11 @@ The diagram above represents the relational model of the Bike Store database,
 including entities such as Customer, Orders, Products, and Staff, as well as
 their relationships and primary and foreign keys.
 
-Questions solved:
+## Questions solved:
 
-Total Revenue per Store:
+###Total Revenue per Store:
+```sql
+
 SELECT s.store_name, TO_CHAR(SUM(oi.quantity * oi.list_price),'L999,999,999.99') AS total
 FROM stores s
 JOIN orders o ON s.store_id = o.store_id
@@ -27,7 +29,8 @@ ORDER BY total DESC;
 
 
 
-Top 15 Most Expensive Products:
+###Top 15 Most Expensive Products:
+
 SELECT  p.product_name, TO_CHAR(MAX(p.list_price), 'L999,999,999.99') AS Most_Expensive 
 FROM products p
 GROUP BY p.product_name
@@ -36,7 +39,8 @@ LIMIT 15;
 
 
 
-Order Count per Staff Member:
+###Order Count per Staff Member:
+
 SELECT s.first_name , COUNT(o.staff_id) AS order_count, st.store_name
 FROM staffs s
 JOIN orders o ON s.staff_id = o.staff_id
@@ -46,7 +50,8 @@ ORDER BY order_count DESC;
 
 
 
-Average Product Price by Category:
+###Average Product Price by Category:
+
 SELECT c.category_name, to_char(AVG(p.list_price),'L999,999,999.99')
 FROM categories c
 JOIN products p ON c.category_id = p.category_id
@@ -55,7 +60,8 @@ ORDER BY to_char(AVG(p.list_price),'L999,999,999.99' ) DESC;
 
 
 
-Revenue by Category:
+###Revenue by Category:
+
 SELECT c.category_name,to_char (SUM(oi.quantity * oi.list_price), 'L999,999,999.99') AS Top_revenue_category, COUNT(oi.product_id)  AS times_sold 
 FROM categories c 
 JOIN products p ON c.category_id = p.category_id
@@ -65,7 +71,8 @@ ORDER BY Top_revenue_category DESC;
 
 
 
-Out-of-Stock Products:
+###Out-of-Stock Products:
+
 SELECT p.product_name AS NO_STOCK
 FROM products p
 join stocks s ON p.product_id = s.product_id
@@ -75,7 +82,8 @@ ORDER BY p.product_name;
 
 
 
-Frequent Customers (More than 2 orders):
+###Frequent Customers (More than 2 orders):
+
 SELECT CONCAT(c.first_name,' ',c.last_name) AS full_name, COUNT(o.customer_id) AS orders
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
@@ -85,7 +93,8 @@ ORDER BY orders DESC;
 
 
 
-Average Order Value (AOV) per Customer:
+###Average Order Value (AOV) per Customer:
+
 WITH Total_price_per_order AS (
   SELECT oi.order_id, o.customer_id, SUM(oi.quantity * oi.list_price) AS total FROM order_items oi
   JOIN orders o ON oi.order_id = o.order_id
@@ -99,7 +108,8 @@ ORDER BY to_char(AVG(t.total),'L999,999,999.99') DESC;
 
 
 
-Products Never Sold: 
+### Products Never Sold: 
+
 SELECT p.product_name AS zero_sales_product
 FROM products p 
 LEFT JOIN order_items oi ON p.product_id = oi.product_id
