@@ -9,6 +9,12 @@ The database consists of 9 tables organized into two main schemas:
 
 - Production: categories, brands, products, and stocks.
 
+![DER do banco de dados](DER-BIKE-STORE.png)
+
+O diagrama acima representa o modelo relacional do banco de dados da Bike Store,
+incluindo entidades como Customer, Orders, Products e Staff, além de seus
+relacionamentos e chaves primárias e estrangeiras.
+
 Questions solved:
 
 Total Revenue per Store:
