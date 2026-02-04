@@ -1,4 +1,4 @@
-<img width="1286" height="696" alt="image" src="https://github.com/user-attachments/assets/9b5ae002-5d51-4408-af97-9152cb1aa9a8" /># Bike-Store-Relational-Database-SQL 
+
 Project Overview:
 - This project performs data analysis of a multi-store bicycle retail chain using SQL.
 
