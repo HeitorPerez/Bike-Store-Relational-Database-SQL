@@ -11,9 +11,9 @@ The database consists of 9 tables organized into two main schemas:
 
 ![DER do banco de dados](DER-BIKE-STORE.png)
 
-O diagrama acima representa o modelo relacional do banco de dados da Bike Store,
-incluindo entidades como Customer, Orders, Products e Staff, além de seus
-relacionamentos e chaves primárias e estrangeiras.
+The diagram above represents the relational model of the Bike Store database,
+including entities such as Customer, Orders, Products, and Staff, as well as
+their relationships and primary and foreign keys.
 
 Questions solved:
 
