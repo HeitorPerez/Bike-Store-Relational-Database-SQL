@@ -81,7 +81,7 @@ GROUP BY c.customer_id,c.first_name,c.last_name
 ORDER BY AVG(t.total) DESC;
 
 
-> Month-over-Month Sales Performance
+> Month-over-Month Sales Performance:
 This query analyses the revenue month by month, the result was used to create a year over year char in Tableau.
 
 WITH monthly AS(
