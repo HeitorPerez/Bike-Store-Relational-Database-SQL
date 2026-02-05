@@ -51,6 +51,7 @@ their relationships and primary and foreign keys.
 
 ```sql
 > Order Count per Staff Member:
+This query is used to calculate the productivity based on the total number of sales per employee.
 
 SELECT s.first_name,
 COUNT(o.staff_id) AS order_count,
@@ -63,6 +64,7 @@ ORDER BY order_count DESC;
 
 
 > Average Order Value (AOV) per Customer:
+This query identifies spending patterns using the Average Order Value (AOV) per customer.
 
 WITH Total_price_per_order AS (
   SELECT oi.order_id, o.customer_id, SUM(oi.quantity * oi.list_price) AS total FROM order_items oi
@@ -80,6 +82,7 @@ ORDER BY AVG(t.total) DESC;
 
 
 > Month-over-Month Sales Performance
+This query analyses the revenue month by month, the result was used to create a year over year char in Tableau.
 
 WITH monthly AS(
   SELECT 
