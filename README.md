@@ -25,8 +25,8 @@
 
 The charts were created in Tableau based on the SQL query outputs.
 
-![Monthly Sales](images/monthly_sales.png)
-![Revenue by Category](images/revenue_by_category.png)
+![Monthly Sales](Graphics/monthly_sales.png)
+![Revenue by Category](Graphics/revenue_by_category.png)
 
 Project Overview:
 - This project performs data analysis of a multi-store bicycle retail chain using SQL.
