@@ -1,6 +1,4 @@
-
 Total Revenue per Store:
-
 
 SELECT 
 s.store_name,
@@ -17,7 +15,6 @@ ORDER BY total DESC;
   
 Top 15 Most Expensive Products:
 
-
 SELECT  
 p.product_name, 
 MAX(p.list_price) AS Most_Expensive 
@@ -31,8 +28,7 @@ LIMIT 15;
 
 
 
- Order Count per Staff Member:
-
+Order Count per Staff Member:
 
 SELECT s.first_name,
 COUNT(o.staff_id) AS order_count,
@@ -47,7 +43,6 @@ ORDER BY order_count DESC;
 
 Average Product Price by Category:
 
-
 SELECT 
 c.category_name,
 AVG(p.list_price)
@@ -61,8 +56,7 @@ ORDER BY AVG(p.list_price) DESC;
 
 
 Revenue by Category:
-
-
+  
 SELECT 
 c.category_name,
 SUM(oi.quantity * oi.list_price) AS Top_revenue_category,
@@ -80,7 +74,6 @@ ORDER BY Top_revenue_category DESC;
 
 Out of Stock Products:
 
-
 SELECT p.product_name AS NO_STOCK
 FROM products p
 join stocks s ON p.product_id = s.product_id
@@ -92,7 +85,6 @@ ORDER BY p.product_name;
 
 Frequent Customers (More than 2 orders):
 
-
 SELECT CONCAT(c.first_name,' ',c.last_name) AS full_name, COUNT(o.customer_id) AS orders
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
@@ -103,7 +95,6 @@ ORDER BY orders DESC;
 
 
 Average Order Value (AOV) per Customer:
-
 
 WITH Total_price_per_order AS (
   SELECT oi.order_id, o.customer_id, SUM(oi.quantity * oi.list_price) AS total FROM order_items oi
@@ -124,7 +115,6 @@ ORDER BY to_char(AVG(t.total),'L999,999,999.99') DESC;
 
 
 Products Never Sold:
-
 
 SELECT p.product_name AS zero_sales_product
 FROM products p 
@@ -183,8 +173,11 @@ WITH monthly AS(
 )
 
 SELECT 
-  year, month, sales_month ,
-  LAG(sales_month) OVER (ORDER BY year,month) AS month_before, (sales_month - LAG(sales_month) OVER (ORDER BY year, month)) AS sales_difference,
+  year,
+  month,
+  sales_month,
+  LAG(sales_month) OVER (ORDER BY year,month) AS month_before,
+  (sales_month - LAG(sales_month) OVER (ORDER BY year, month)) AS sales_difference,
   CASE
     WHEN (sales_month - LAG(sales_month) OVER (ORDER BY year,month)) IS NULL THEN 'First month!'
     WHEN (sales_month - LAG(sales_month) OVER (ORDER BY year,month)) = 0 THEN 'No difference between months!'
