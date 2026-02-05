@@ -124,4 +124,59 @@ FROM products p
 LEFT JOIN order_items oi ON p.product_id = oi.product_id
 WHERE oi.product_id IS NULL
 GROUP BY p.product_id
-ORDER BY p.product_name; 
+ORDER BY p.product_name;
+
+
+
+Total Revenue per Staff Member
+
+SELECT CONCAT(s.first_name,' ',s.last_name), to_char(SUM(oi.quantity*oi.list_price),'L999,999,999.99') FROM staffs s 
+LEFT JOIN orders o ON s.staff_id = o.staff_id
+LEFT JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY CONCAT(s.first_name,' ',s.last_name)
+ORDER BY to_char(SUM(oi.quantity*oi.list_price),'L999,999,999.99') DESC NULLS last;
+
+
+Staff Sales Ranking By Store
+
+WITH rnk AS (
+  SELECT CONCAT(s.first_name,' ',s.last_name), to_char(SUM(oi.quantity*oi.list_price),'L999,999,999.99'), st.store_name,
+  DENSE_RANK() OVER (PARTITION BY st.store_name ORDER BY SUM(oi.quantity*oi.list_price) DESC) AS moneyrank
+  FROM staffs s
+  JOIN orders o ON s.staff_id = o.staff_id
+  JOIN stores st ON s.store_id = st.store_id
+  JOIN order_items oi ON o.order_id = oi.order_id
+  GROUP BY st.store_name, CONCAT(s.first_name,' ',s.last_name)
+)
+
+SELECT * FROM rnk
+WHERE moneyrank <= 3;
+
+
+Month-over-Month Sales Performance --> comentar a falta de formatação dos numeros para moeda no código pelo uso de when posteriormente
+
+WITH monthly AS(
+  SELECT 
+  EXTRACT(YEAR FROM o.order_date::DATE) AS year,
+  EXTRACT(MONTH FROM o.order_date::DATE) AS month,
+  SUM(oi.quantity*oi.list_price) AS sales_month
+  FROM orders o
+  JOIN order_items oi ON o.order_id = oi.order_id
+  GROUP BY 1, 2
+  ORDER BY 1, 2
+)
+
+SELECT 
+  year, month, sales_month ,
+  LAG(sales_month) OVER (ORDER BY year,month) AS month_before, (sales_month - LAG(sales_month) OVER (ORDER BY year, month)) AS sales_difference,
+  CASE
+    WHEN (sales_month - LAG(sales_month) OVER (ORDER BY year,month)) IS NULL THEN 'First month!'
+    WHEN (sales_month - LAG(sales_month) OVER (ORDER BY year,month)) = 0 THEN 'No difference between months!'
+    WHEN (sales_month - LAG(sales_month) OVER (ORDER BY year,month)) > 0 THEN 'Growth!'
+    ELSE 'Decline'
+  END AS MonthPerformace
+FROM monthly;
+
+
+
+
