@@ -1,3 +1,32 @@
+## Project Workflow
+
+1. The dataset was obtained from Kaggle
+2. CSV files were uploaded to Supabase (PostgreSQL)
+3. Data exploration and analysis were performed using SQL
+4. Query results were exported
+5. Dashboards were created in Tableau
+
+## How to Reproduce
+
+1. Download the dataset from Kaggle  
+2. Upload the CSV files to a PostgreSQL database (Supabase or local)
+3. Execute the queries available in `sql/analysis.sql`
+4. Export query results as CSV
+5. Import the results into Tableau to recreate the visualizations
+
+## Data Source
+
+- Dataset: Bike Store Sales Dataset  
+- Source: https://www.kaggle.com/datasets/dillonmyrick/bike-store-sample-database  
+- Data was uploaded as raw CSV files into Supabase (PostgreSQL)
+
+
+## Visualizations
+
+The charts were created in Tableau based on the SQL query outputs.
+
+![Monthly Sales](images/monthly_sales.png)
+![Revenue by Category](images/revenue_by_category.png)
 
 Project Overview:
 - This project performs data analysis of a multi-store bicycle retail chain using SQL.
