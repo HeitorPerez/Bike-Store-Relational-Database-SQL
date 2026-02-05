@@ -108,7 +108,7 @@ AVG(t.total)
 FROM customers c
 JOIN Total_price_per_order t ON c.customer_id = t.customer_id
 GROUP BY c.customer_id,c.first_name,c.last_name
-ORDER BY to_char(AVG(t.total),'L999,999,999.99') DESC;
+ORDER BY AVG(t.total) DESC;
 
 > Currency formatting was intentionally omitted numeric precision for analytical operations
 
