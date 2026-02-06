@@ -165,6 +165,9 @@ This list has been limited to the top 10 customers for demonstration purposes
 
 
 ## 10. Total Revenue per Staff Member
+Null results indicate that the staff member has not made any sales up to the point of data collection.
+
+
 | staff_member       | total_sales      |
 | ------------------ | ---------------- |
 | Marcelene Boyer    | $   2,938,888.73 |
