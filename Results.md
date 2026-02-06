@@ -110,6 +110,9 @@
 
 
 ## 7. Frequent Customers (More than 2 orders)
+This list has been limited to the top 10 customers for demonstration purposes
+
+
 | full_name          | orders |
 | ------------------ | ------ |
 | Robby Sykes        | 3      |
