@@ -138,24 +138,21 @@ ORDER BY SUM(oi.quantity*oi.list_price) DESC NULLS last;
 > Currency formatting was intentionally omitted numeric precision for analytical operations
 
 
+Average-Order-Value-(AOV)-per-Staff-Member:
 
-Staff-Sales-Ranking-By-Store
-
-WITH rnk AS (
-  SELECT 
-  CONCAT(s.first_name,' ',s.last_name),
-  SUM(oi.quantity*oi.list_price),
-  st.store_name,
-  DENSE_RANK() OVER (PARTITION BY st.store_name ORDER BY SUM(oi.quantity*oi.list_price) DESC) AS moneyrank
-  FROM staffs s
-  JOIN orders o ON s.staff_id = o.staff_id
-  JOIN stores st ON s.store_id = st.store_id
-  JOIN order_items oi ON o.order_id = oi.order_id
-  GROUP BY st.store_name, CONCAT(s.first_name,' ',s.last_name)
+with t as(
+  SELECT CONCAT(s.first_name,' ',s.last_name) AS staff_member,
+  SUM(oi.quantity*oi.list_price)AS total_sales,
+  COUNT(DISTINCT o.order_id) AS times
+  FROM staffs s 
+  LEFT JOIN orders o ON s.staff_id = o.staff_id
+  LEFT JOIN order_items oi ON o.order_id = oi.order_id
+  GROUP BY CONCAT(s.first_name,' ',s.last_name)
 )
 
-SELECT * FROM rnk
-WHERE moneyrank <= 3;
+
+ SELECT staff_member , to_char((total_sales /times),'L999,999,999.99') AS avg_order_value from t
+ ORDER BY total_sales DESC NULLS LAST;
 
 
 
