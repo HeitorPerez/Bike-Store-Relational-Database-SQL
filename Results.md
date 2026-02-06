@@ -1,6 +1,6 @@
 # Relatório de Resultados SQL
 
-## 📊 Sumário Interativo
+## 📊 Sumário 
 1. [Total Revenue per Store](#1-total-revenue-per-store)
 2. [Top 15 Most Expensive Products](#2-top-15-most-expensive-products)
 3. [Order Count per Staff Member](#3-order-count-per-staff-member)
