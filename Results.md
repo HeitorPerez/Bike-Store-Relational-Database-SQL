@@ -23,6 +23,7 @@
 | Santa Cruz Bikes | $   1,790,145.91 |
 | Rowlett Bikes    | $     962,600.76 |
 
+With this query, we can clearly see that the best-performing store is Baldwin Bikes, generating three times more revenue than Santa Cruz Bikes, the second-best performer.
 
 
 ## 2. Top 10 Most Expensive Products
@@ -39,6 +40,8 @@
 | Trek Domane SLR 6 Disc - 2017          | $       5,499.99 |
 | Trek Domane SLR 6 Disc - 2018          | $       5,499.99 |
 
+This table shows the most expensive products in the store, and its clear that the Trek Domane SLR 9 Disc - 2018 ranks first, being 60% more expensive than the second place product.
+
 
 
 ## 3. Order Count Per Staff Member
@@ -50,6 +53,8 @@
 | Mireya     | 164         | Santa Cruz Bikes |
 | Kali       | 88          | Rowlett Bikes    |
 | Layla      | 86          | Rowlett Bikes    |
+
+This table shows the number of orders of each staff member and their store name. After looking at the results it confirm the data shown in Table 1. Here, we can clearly see that the Staff Members who work in Baldwin bikes have a much higher  sales volume than those in other stores. We also see that the discrepancy between staff members within the same store is low, indicating that the stores have a really good distribution of oders among the staff.
 
 
 
@@ -64,6 +69,7 @@
 | Comfort Bicycles    | $         682.12 |
 | Children Bicycles   | $         287.79 |
 
+This table shows the average product price by category. The results indicate that Electric Bikes and Road Bikes have the highest average prices overall, while Children’s Bikes have by far the lowest average price.
 
 
 ## 5. Revenue by Category
@@ -76,6 +82,8 @@
 | Cyclocross Bicycles | $     799,874.60 | 256        |
 | Comfort Bicycles    | $     438,506.87 | 537        |
 | Children Bicycles   | $     327,888.21 | 782        |
+
+This table shows the total revenue by category, giving an overview of the Bike Store´s revenue strengths. Using the data Table 4, and comparing it with Table 5, Mountain Bike has the 4th higher average price but its first in revenue. This is due to the high sales volume, with units sold being 75% above the average. The same applis to Cruiser Bicycles, which have 104% more sales than the overall average.
 
 
 
@@ -107,6 +115,8 @@
 | Trek Remedy 29 Carbon Frameset - 2016         |
 | Trek Remedy 9.8 - 2017                        |
 
+This table gives us the exact items that are not in stock.
+
 
 
 ## 7. Frequent Customers (More than 2 orders)
@@ -126,9 +136,14 @@ This list has been limited to the top 10 customers for demonstration purposes
 | Williemae Holloway | 3      |
 | Ronna Butler       | 3      |
 
+Returns the name and number of orders of each frequent customer.
+
 
 
 ## 8. Average Order Value (AOV) per Customer
+This list has been limited to the top 10 customers for demonstration purposes
+
+
 | full_name        | to_char          |
 | ---------------- | ---------------- |
 | Shena Carter     | $      27,618.95 |
@@ -141,6 +156,8 @@ This list has been limited to the top 10 customers for demonstration purposes
 | Bess Mcbride     | $      21,097.95 |
 | Ashanti Hammond  | $      20,997.94 |
 | Ruthanne Franco  | $      20,679.95 |
+
+This table gives information about clients AOV, from highest to lowest. Knowleadge about clients AOV helps to profile high-value clients, as a higher AOV means higher profit per sale.
 
 
 
@@ -162,6 +179,8 @@ This list has been limited to the top 10 customers for demonstration purposes
 | Trek Kids' Dual Sport - 2018                   |
 | Trek Precaliber 12 Girl's - 2018               |
 
+This table list us the exact products that have never been sold.
+
 
 
 ## 10. Total Revenue per Staff Member
@@ -181,18 +200,26 @@ Null results indicate that the staff member has not made any sales up to the poi
 | Fabiola Jackson    | null             |
 | Jannette David     | null             |
 
+This table list from higher to lower the total revenue per staff member. Taking a look at tables 1 and 3, and comparing the data we can see that the revenue per staff member is primary decorrent of each store sales volume. 
 
 
-## 11. Staff Sales Ranking By Store
-| staff_member    | revenue          | store_name       | rank |
-| --------------- | ---------------- | ---------------- | ---- |
-| Marcelene Boyer | $   2,938,888.73 | Baldwin Bikes    | 1    |
-| Venita Daniel   | $   2,887,353.48 | Baldwin Bikes    | 2    |
-| Kali Vargas     | $     516,695.17 | Rowlett Bikes    | 1    |
-| Layla Terrell   | $     445,905.59 | Rowlett Bikes    | 2    |
-| Genna Serrano   | $     952,722.26 | Santa Cruz Bikes | 1    |
-| Mireya Copeland | $     837,423.65 | Santa Cruz Bikes | 2    |
 
+## 11. Average Order Value (AOV) per Staff Member
+
+| staff_member       | avg_order_value  |
+| ------------------ | ---------------- |
+| Marcelene Boyer    | $       5,314.45 |
+| Venita Daniel      | $       5,346.95 |
+| Genna Serrano      | $       5,177.84 |
+| Mireya Copeland    | $       5,106.24 |
+| Kali Vargas        | $       5,871.54 |
+| Layla Terrell      | $       5,184.95 |
+| Virgie Wiggins     | null             |
+| Fabiola Jackson    | null             |
+| Jannette David     | null             |
+| Bernardine Houston | null             |
+
+This table was created to complement Table 10 by calculating each staff member’s AOV. The results show that revenue per staff member is highly correlated with sales volume, rather than with the average sale price.
 
 
 ## 12. Month-over-Month Sales Performance
@@ -234,3 +261,6 @@ Null results indicate that the staff member has not made any sales up to the poi
 | 2018 | 10    | $       4,219.92 | $       9,949.96 | $      -5,730.04 | Decline         |
 | 2018 | 11    | $      12,278.93 | $       4,219.92 | $       8,059.01 | Growth          |
 | 2018 | 12    | $       7,999.96 | $      12,278.93 | $      -4,278.97 | Decline         |
+
+
+This table was developed to support a time-based performance analysis.
