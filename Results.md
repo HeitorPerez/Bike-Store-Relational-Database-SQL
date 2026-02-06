@@ -2,7 +2,7 @@
 
 ## 📊 Sumário 
 1. [Total Revenue per Store](#1-total-revenue-per-store)
-2. [Top 15 Most Expensive Products](#2-top-15-most-expensive-products)
+2. [Top 10 Most Expensive Products](#2-top-10-most-expensive-products)
 3. [Order Count per Staff Member](#3-order-count-per-staff-member)
 4. [Average Product Price by Category](#4-average-product-price-by-category)
 5. [Revenue by Category](#5-revenue-by-category)
