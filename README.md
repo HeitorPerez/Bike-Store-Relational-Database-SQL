@@ -17,7 +17,7 @@
 
 1. Download the dataset from Kaggle  
 2. Upload the CSV files to a PostgreSQL database (Supabase or local)
-3. Execute the queries available in `sql/analysis.sql`
+3. Execute the queries available in `sql/data_analysis.sql`
 4. Export query results as CSV
 5. Import the results into Tableau to recreate the visualizations
 
