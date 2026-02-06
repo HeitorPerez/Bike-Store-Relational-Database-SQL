@@ -275,7 +275,7 @@ This table was created to complement Table 10 by calculating each staff memberâ€
 | 2018 | 12    | $       7,999.96 | $      12,278.93 | $      -4,278.97 | Decline         |
 
 
-This table was developed to support the time-based performance analysis above:
+This table was developed to support the time-based performance analysis bellow:
 
 ![Monthly Sales Performance](Graphics/Monthly%20Sales%20Performance%20(2016-2018).png)
 
