@@ -279,4 +279,5 @@ This table was developed to support the time-based performance analysis above:
 
 ![Monthly Sales Performance](Graphics/Monthly%20Sales%20Performance%20(2016-2018).png)
 
+The biggest insight from this data is that April 2018 recorded the highest revenue in the store’s history—more than double the previous revenue record. However, just one month later, in May 2018, the store made no sales at all, and in the following months revenue dropped heavly compared to prior periods. Based on the available data, it is not entirely clear what caused this change.
 
