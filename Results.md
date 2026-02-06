@@ -25,7 +25,7 @@
 
 
 
-## 2. Top 15 Most Expensive Products
+## 2. Top 10 Most Expensive Products
 | product_name                           | most_expensive   |
 | -------------------------------------- | ---------------- |
 | Trek Domane SLR 9 Disc - 2018          | $      11,999.99 |
