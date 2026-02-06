@@ -1,4 +1,4 @@
-Total Revenue per Store:
+Total-Revenue-per-Store:
 
 SELECT 
 s.store_name,
@@ -13,7 +13,7 @@ ORDER BY total DESC;
 
 
   
-Top 15 Most Expensive Products:
+Top-10 Most-Expensive-Products:
 
 SELECT  
 p.product_name, 
@@ -21,14 +21,14 @@ MAX(p.list_price) AS Most_Expensive
 FROM products p
 GROUP BY p.product_name
 ORDER BY MAX(p.list_price) DESC
-LIMIT 15;
+LIMIT 10;
 
 > Currency formatting was intentionally omitted numeric precision for analytical operations
 
 
 
 
-Order Count per Staff Member:
+Order-Count-per-Staff-Member:
 
 SELECT s.first_name,
 COUNT(o.staff_id) AS order_count,
@@ -41,7 +41,7 @@ ORDER BY order_count DESC;
 
 
 
-Average Product Price by Category:
+Average-Product-Price-by-Category:
 
 SELECT 
 c.category_name,
@@ -55,7 +55,7 @@ ORDER BY AVG(p.list_price) DESC;
 
 
 
-Revenue by Category:
+Revenue-by-Category:
   
 SELECT 
 c.category_name,
@@ -72,7 +72,7 @@ ORDER BY Top_revenue_category DESC;
 
 
 
-Out of Stock Products:
+Out-of-Stock-Products:
 
 SELECT p.product_name AS NO_STOCK
 FROM products p
@@ -83,7 +83,7 @@ ORDER BY p.product_name;
 
 
 
-Frequent Customers (More than 2 orders):
+Frequent-Customers (More than 2 orders):
 
 SELECT CONCAT(c.first_name,' ',c.last_name) AS full_name, COUNT(o.customer_id) AS orders
 FROM customers c
@@ -94,7 +94,7 @@ ORDER BY orders DESC;
 
 
 
-Average Order Value (AOV) per Customer:
+Average-Order-Value-(AOV)-per-Customer:
 
 WITH Total_price_per_order AS (
   SELECT oi.order_id, o.customer_id, SUM(oi.quantity * oi.list_price) AS total FROM order_items oi
@@ -114,7 +114,7 @@ ORDER BY AVG(t.total) DESC;
 
 
 
-Products Never Sold:
+Products-Never-Sold:
 
 SELECT p.product_name AS zero_sales_product
 FROM products p 
@@ -125,7 +125,7 @@ ORDER BY p.product_name;
 
 
 
-Total Revenue per Staff Member
+Total-Revenue-per-Staff-Member
 
 SELECT 
 CONCAT(s.first_name,' ',s.last_name),
@@ -139,7 +139,7 @@ ORDER BY SUM(oi.quantity*oi.list_price) DESC NULLS last;
 
 
 
-Staff Sales Ranking By Store
+Staff-Sales-Ranking-By-Store
 
 WITH rnk AS (
   SELECT 
@@ -159,7 +159,7 @@ WHERE moneyrank <= 3;
 
 
 
-Month-over-Month Sales Performance
+Month-over-Month-Sales-Performance
 
 WITH monthly AS(
   SELECT 
